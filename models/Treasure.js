@@ -1,18 +1,24 @@
 var mongoose = require('mongoose');
 
-var treasureSchema = new mongoose.Schema({
-  img_url: String,
-  name: String,
-  description: Text,
-  street: String,
-  city: String,
-  state: String,
-  zip: String,
-  date: Date,
-  archived: Boolean,
-  pirate_id: Number
+var TreasureSchema = new mongoose.Schema({
+    name: String,
+    description: Text,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
+    archived: Boolean,
+    posted_date: {
+        type: Date,
+        default: Date.now
+    },
+    updated_at: {
+        type: Date,
+        default: Date.now
+    },
+    pirate_id: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'Pirate'
+    }
 });
 
-var Treasure = mongoose.model(Treasure, treasureSchema);
-
-module.exports = Treasure;
+module.exports = mongoose.model('Treasure', TreasureSchema);
