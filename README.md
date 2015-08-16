@@ -1,12 +1,25 @@
+###Description
+
+###User stories
+
+###MVP
+
+###Icebox
+
+###Getting Started
+
+###Design
+
+###Technology
+
+###Future
+
 ####Sidewalk Sailors
 
 Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors)
 
 ### Logo
 ![Sidewalk Sailors](https://i.imgur.com/0ETpRGT.png)
-
-## Sidewalk Sailors Github
-https://github.com/mariawhen/sidewalk_sailors
 
 ### App Statement
 *(come with variations on Sunday)*
