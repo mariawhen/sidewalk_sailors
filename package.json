@@ -12,7 +12,11 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
+<<<<<<< HEAD
     "mongoose": "^4.1.3",
+=======
+    "method-override": "^2.3.5",
+>>>>>>> ec2880a48bfb230e95809e61eb91229d7ca33479
     "morgan": "~1.6.1",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
