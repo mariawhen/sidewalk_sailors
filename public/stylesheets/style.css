@@ -15,10 +15,13 @@ a {
   height:95px;
   padding: 0px;
   margin: 0px;
-  }
+}
 
 .search-row{
   margin-left: 45%;
   margin-top: 25px;
+}
 
+.nav-wrapper{
+  background-color: black;
 }
