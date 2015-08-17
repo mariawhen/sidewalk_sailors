@@ -16,6 +16,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var db = require('./models/db');
 var app = express();
 
+//connect to mongo db
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/sidewalk_sailors')
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
