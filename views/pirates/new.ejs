@@ -1,28 +1,30 @@
 <% include ../partials/_head %>
 <% include ../partials/_nav %>
    <h1>Register</h1>
- <div class="row">
-    <form class="col s12" action="/register" method="POST">
+ <div class="parallax-container join-image"></div>
+<div class="container">
+  <div class="row join-form">
+    <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="email" name="username" id="username" type="text" class="validate">
+          <input id="username" type="text" class="validate">
           <label for="username">Email</label>
         </div>
+      </div>
       <div class="row">
+          <label for="zipcode"> &nbsp;&nbsp;Zipcode</label><br>
         <div class="input-field col s12">
-          <input id="zipcode" name="zipcode" type="zipcode" class="validate">
-          <label for="zipcode">Zipcode</label>
+<input type="string" pattern="[0-9]*" maxlength="5" min="0" id="zipcode">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" name="password" type="password" class="validate">
+          <input id="password" type="password" class="validate">
           <label for="password">Password</label>
         </div>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">
-         <i class="material-icons">contacts</i> &nbsp;&nbsp;Join Our Crew
-      </button>
+      <button class="btn waves-effect waves-light join-submit-button red" type="submit" name="action">Join the Crew!</button>
     </form>
   </div>
+</div>
 <% include ../partials/_footer %>
