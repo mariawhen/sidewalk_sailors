@@ -1,8 +1,24 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.index-logo{
+  height: 300px;
+}
+
+.index-search{
+  height:95px;
+  padding: 0px;
+  margin: 0px;
+  }
+
+.search-row{
+  margin-left: 45%;
+  margin-top: 25px;
+
 }
