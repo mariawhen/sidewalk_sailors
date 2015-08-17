@@ -10,7 +10,7 @@ var index = function(req, res, next) {
 }
 
 // NEW PIRATE
-var newTreasure = function(req, res, next) {
+var newPirate = function(req, res, next) {
   res.render('./pirates/new');
 }
 

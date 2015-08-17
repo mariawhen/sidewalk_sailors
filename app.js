@@ -9,7 +9,7 @@ var express = require('express'),
 
 // routes
 var routes = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 
 app.use('/', routes);
-app.use('/users', users);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
