@@ -6,11 +6,11 @@ var PirateSchema = new mongoose.Schema({
   email: String,
   password: String,
   zipcode: String,
-  treasure_count: Number
+  treasure_count: Number,
   created_at: {type: Date, default: Date.now},
   updated_at: {type: Date, default: Date.now}
 });
 
-Pirate.plugin(passportLocalMongoose);
+PirateSchema(passportLocalMongoose);
 
 module.exports = mongoose.model('Pirate', PirateSchema);
