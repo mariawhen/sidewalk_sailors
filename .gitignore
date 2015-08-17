@@ -31,3 +31,6 @@ bower_components
 
 *.sublime-project
 *.sublime-workspace
+
+# banish the dreaded .DS_Store from the annals of history
+.DS_Store
