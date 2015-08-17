@@ -4,13 +4,16 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    methodOverride = require('method-override'), //used to manipulate POST
-    db = require('./models/db');
+    methodOverride = require('method-override'); //used to manipulate POST
 
 // routes
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
+// db stuff
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var db = require('./models/db');
 var app = express();
 
 // view engine setup
@@ -23,12 +26,27 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
+// auth middleware
+app.use(require('express-session')({
+  secret: 'jeong sings',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
-app.use('/users', users);
+
+// passport config
+var Pirate = require('./models/Pirate');
+passport.use(new LocalStrategy(Pirate.authenticate()));
+passport.serializeUser(Pirate.serializeUser());
+passport.deserializeUser(Pirate.deserializeUser());
+app.locals.title = 'Sidewalk Sailors';
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
