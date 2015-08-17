@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var TreasureSchema = new mongoose.Schema({
     name: String,
-    description: Text,
+    description: String,
     street: String,
     city: String,
     state: String,
