@@ -6,6 +6,12 @@ var Pirate = require('../models/Pirate');
 var router = express.Router();
 
 
+//require controllers
+var aboutController = require('../controllers/aboutController');
+var treasuresController = require('../controllers/treasuresController');
+var piratesController = require('../controllers/piratesController');
+
+
 // require controllers
 var piratesController      = require('../controllers/piratesController'),
     sessionsController     = require('../controllers/sessionsController'),
@@ -66,4 +72,11 @@ router.post( '/login', authenticatePirate, sessionsController.create);
 // logout
 router.get(  '/logout', sessionsController.destroy);
 
+module.exports = router;
+
+/* Pirate CRUD */
+router.get( '/pirates',             piratesController.index);
+router.get( '/pirates/new',         piratesController.newPirate);
+router.get( '/pirates/show/:id',     piratesController.show);
+router.get( '/pirates/:id/edit',     piratesController.edit);
 module.exports = router;
