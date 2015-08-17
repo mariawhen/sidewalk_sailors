@@ -4,22 +4,22 @@
  <div class="parallax-container join-image"></div>
 <div class="container">
   <div class="row join-form">
-    <form class="col s12">
+    <form class="col s12" method="POST" action="/register">
       <div class="row">
         <div class="input-field col s6">
-          <input id="username" type="text" class="validate">
+          <input id="username" type="text" class="validate" name="username">
           <label for="username">Email</label>
         </div>
       </div>
       <div class="row">
           <label for="zipcode"> &nbsp;&nbsp;Zipcode</label><br>
         <div class="input-field col s12">
-<input type="string" pattern="[0-9]*" maxlength="5" min="0" id="zipcode">
+          <input type="string" pattern="[0-9]*" maxlength="5" min="0" id="zipcode"  name="zipcode">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate" name="password">
           <label for="password">Password</label>
         </div>
       </div>
