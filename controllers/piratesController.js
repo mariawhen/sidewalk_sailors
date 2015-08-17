@@ -3,10 +3,6 @@ var passport = require('passport');
 
 var Pirate = require('../models/Pirate');
 
-var newRoute = function(req, res) {
-  res.render('pirates/new');
-};
-
 // Controllers for Pirates
 
 var Pirate = require('../models/Pirate');
