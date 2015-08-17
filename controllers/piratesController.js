@@ -9,7 +9,7 @@ var newRoute = function(req, res) {
 
 var create = function(req, res) {
   Pirate.register(new Pirate({username: req.body.username, email: req.body.email, zipcode: req.body.zipcode}), req.body.password, function(err, pirate) {
-      if (err) return res.render('auth/register', {pirate: pirate});
+      if (err) return res.render('pirates/new', {pirate: pirate});
         passport.authenticate('local')(req, res, function() {
         req.session.save(function(err) {
           if (err) {
