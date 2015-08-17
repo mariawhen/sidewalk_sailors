@@ -25,3 +25,17 @@ a {
 .nav-wrapper{
   background-color: black;
 }
+
+.join-form{
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+.join-image{
+  background-image: url("https://images.unsplash.com/photo-1413834932717-29e7d4714192?q=80&fm=jpg&s=9acc056cc9fe1c2344d5387071d0dc50");
+  background-size: cover;
+}
+
+/*.join-submit-button{
+  background-color: red;
+}*/
