@@ -8,7 +8,10 @@ var TreasureSchema = new mongoose.Schema({
     city: String,
     state: String,
     zipcode: String,
-    archived: Boolean,
+    archived: {
+        type: Boolean,
+        default: false
+    },
     posted_date: {
         type: Date,
         default: Date.now

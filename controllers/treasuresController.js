@@ -1,6 +1,7 @@
 // Controllers for Treasures
 
 var Treasure = require('../models/Treasure');
+var Pirate = require('../models/Pirate');
 
 
 var index = function(req, res, next) {
@@ -17,13 +18,40 @@ var newTreasure = function(req, res, next) {
 
 // CREATE TREASURE
 var create = function(req, res, next) {
-  var treasure = new Treasure(req.body.treasure);
+  // console.log('in POST');
+  // console.log('body:',req.user.id);
+  // console.log(res);
+  var newTreasure = new Treasure({name: req.body.name,
+                              description: req.body.description,
+                              img_url: req.body.img_url,
+                              street: req.body.street,
+                              city: req.body.city,
+                              state: req.body.state,
+                              zipcode: req.body.zipcode,
+                              pirate_id: req.user.id}
+                              );
+  //newTreasure.username = req.user.id;
 
-  treasure.save(function(error) {
+  newTreasure.save(function(error) {
     if (error) res.json({message: 'Could not create treasure because: ' + error});
-    res.redirect("./treasures");
+    // res.redirect("./treasures/" + newTreasure.id);
+    res.redirect("./treasures/" + newTreasure.id);
   });
 };
+
+// var create = function(req, res, next) {
+//   var newComment = req.body.comment;
+//   newComment.username = req.user.name;
+
+//   Comment
+//     .create(newComment)
+//     .then(
+//       function(comment) {
+//         res.redirect('/comments/' + comment.id);
+//       }, function(err) {
+//         return next(err);
+//     });
+// };
 
 // SHOW TREASURE PAGE
 var show = function(req, res, next) {
@@ -31,8 +59,9 @@ var show = function(req, res, next) {
 
   Treasure.findById({_id: id}, function(error, treasure) {
     if(error) res.json({message: 'Could not find treasure because: ' + error});
-
-    res.json({treasure: treasure});
+    // api time below yo
+    // res.json({treasure: treasure});
+    res.render('./treasures/show', {title: "Your New Treasure", user: req.user});
    });
 }
 
