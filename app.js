@@ -8,7 +8,7 @@ var express = require('express'),
 
 // routes
 var routes = require('./routes/index');
-
+// http://blog.robertonodi.me/simple-image-upload-with-express/
 // db stuff
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;

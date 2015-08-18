@@ -1,5 +1,6 @@
 var express  = require('express'),
-    passport = require('passport');
+    passport = require('passport'),
+    methodOverride = require('method-override');
 // models
 var Pirate   = require('../models/Pirate');
 // router
@@ -54,11 +55,13 @@ router.get('/', homeController.index);
 router.get('/about', aboutController.about);
 
 /* Treasure CRUD */
-router.get(  '/treasures',          isLoggedIn,   treasuresController.index);
-router.get(  '/treasures/new',      isLoggedIn,   treasuresController.newTreasure);
-router.post( '/treasures',          isLoggedIn,   treasuresController.create);
-router.get(  '/treasures/:id',      isLoggedIn,   treasuresController.show);
-router.get(  '/treasures/:id/edit', isLoggedIn,   treasuresController.edit);
+
+router.get(  '/treasures',             isLoggedIn, treasuresController.index);
+router.get(  '/treasures/new',         isLoggedIn, treasuresController.newTreasure);
+router.post( '/treasures',             isLoggedIn, treasuresController.create);
+router.get(  '/treasures/:id',         isLoggedIn, treasuresController.show);
+router.get(  '/treasures/:id/edit',    isLoggedIn, treasuresController.editNew);
+router.put(  '/treasures/:id/',        isLoggedIn, treasuresController.editTreasure);
 
 // register
 router.get(  '/register', piratesController.newPirate);
