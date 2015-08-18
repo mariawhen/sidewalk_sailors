@@ -1,14 +1,17 @@
 var express = require('express'),
     path = require('path'),
+    mime = require('mime'),
+    uid2 = require('uid2'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
+    fs       = require('fs'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'); //used to manipulate POST
 
 // routes
 var routes = require('./routes/index');
-
+// http://blog.robertonodi.me/simple-image-upload-with-express/
 // db stuff
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -25,6 +28,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/public/uploads' }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
