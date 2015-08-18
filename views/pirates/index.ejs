@@ -1,1 +1,29 @@
-index.ejs
+<% include ../partials/_head %>
+<% include ../partials/_nav %>
+
+   <h1 class="center"><%= title %></h1>
+
+<div class="container">
+  <div class="row">
+   <% pirates.forEach(function(pirate){ %>
+    <div class="col s3">
+      <div class="card">
+        <div class="card-image">
+          <img id="pirate-image" src=" <%= pirate.img_url %> "/>
+          <span class="card-title">
+               <p><%= pirate.username %></p>
+          </span>
+        </div>
+        <div class="card-content">
+          <%= pirate.zipcode %>
+        </div>
+        <div class="card-action">
+          <a href="/pirates/<%= pirate._id %>">Profile Page</a>
+        </div>
+  </div>
+  </div>
+  <% }); %>
+  </div>
+  </div>
+
+<% include ../partials/_footer %>

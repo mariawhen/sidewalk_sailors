@@ -1,1 +1,26 @@
-show.ejs
+<% include ../partials/_head %>
+<% include ../partials/_nav %>
+<h1 class="center">
+  Hello <%= user.username.split('@')[0].charAt(0).toUpperCase() + user.username.split('@')[0].slice(1).toLowerCase()%>!
+</h1>
+<div class="container">
+<div class="row">
+  <div class="col s6">
+<div class="card">
+  <div class="card-image">
+    <img id="pirate-image" src=" <%= pirate.img_url %> "/>
+    <span class="card-title">
+         <p><%= pirate.piratename %></p>
+    </span>
+  </div>
+  <div class="card-content">
+    <%= pirate.zipcode %>
+  </div>
+  <div class="card-action">
+    <a href="/pirates/<%=pirate._id %>/edit">Edit Your Profile</a>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+<% include ../partials/_footer %>
