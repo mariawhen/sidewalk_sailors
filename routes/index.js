@@ -77,8 +77,8 @@ router.get(  '/logout', sessionsController.destroy);
 /* Pirate CRUD */
 router.get( '/pirates',             piratesController.index);
 router.get( '/pirates/new',         piratesController.newPirate);
-router.get( '/pirates/:id',     piratesController.show);
-router.get( '/pirates/:id/edit',     piratesController.edit);
+router.get( '/pirates/:id',         piratesController.show);
+router.get( '/pirates/:id/edit',    piratesController.edit);
 
 // export router to app
 module.exports = router;
