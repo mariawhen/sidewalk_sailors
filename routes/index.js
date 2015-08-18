@@ -56,8 +56,9 @@ router.get('/about', aboutController.about);
 /* Treasure CRUD */
 router.get(  '/treasures',             treasuresController.index);
 router.get(  '/treasures/new',         treasuresController.newTreasure);
-router.get(  '/treasures/show/:id',     treasuresController.show);
-router.get(  '/treasures/:id/edit',     treasuresController.edit);
+router.post( '/treasures',             treasuresController.create);
+router.get(  '/treasures/:id',         treasuresController.show);
+router.get(  '/treasures/:id/edit',    treasuresController.edit);
 
 // register
 router.get(  '/register', piratesController.newPirate);
@@ -75,7 +76,7 @@ module.exports = router;
 /* Pirate CRUD */
 router.get( '/pirates',             piratesController.index);
 router.get( '/pirates/new',         piratesController.newPirate);
-router.get( '/pirates/show/:id',     piratesController.show);
+router.get( '/pirates/:id',     piratesController.show);
 router.get( '/pirates/:id/edit',     piratesController.edit);
 
 // export router to app
