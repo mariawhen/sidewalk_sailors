@@ -87,7 +87,7 @@ var editTreasure = function(req, res, next) {
 };
 
 // DELETE TREASURE
-var remove = function(req, res, next) {
+var removeTreasure = function(req, res, next) {
   var id = req.params.id;
 
   Treasure.remove({_id: id}, function(error) {
@@ -104,5 +104,5 @@ module.exports = {
    editNew: editNew,
    editTreasure: editTreasure,
    show: show,
-   remove: remove
+   removeTreasure: removeTreasure
 }
