@@ -1,5 +1,5 @@
 var index = function(req, res, next) {
-  res.render('index', {title: "Sidewalk Sailors", user: req.user} );
+  res.render('index', {title: "Sidewalk Sailors", pirate: req.user} );
 }
 
 module.exports = {
