@@ -1,3 +1,4 @@
+
 // Controllers for Treasures
 
 var Treasure = require('../models/Treasure');
@@ -39,20 +40,6 @@ var create = function(req, res, next) {
   });
 };
 
-// var create = function(req, res, next) {
-//   var newComment = req.body.comment;
-//   newComment.username = req.user.name;
-
-//   Comment
-//     .create(newComment)
-//     .then(
-//       function(comment) {
-//         res.redirect('/comments/' + comment.id);
-//       }, function(err) {
-//         return next(err);
-//     });
-// };
-
 // SHOW TREASURE PAGE
 var show = function(req, res, next) {
   var id = req.params.id;
@@ -65,9 +52,19 @@ var show = function(req, res, next) {
    });
 }
 
+// Edit Treasure
+var editNew = function(req, res, next) {
+  var id = req.params.id;
+  Treasure.findById({_id: id}, function(error, treasure) {
+    if(error) res.json({message: 'Could not edit treasure because: ' + error});
+    // api time below yo
+    // res.json({treasure: treasure});
+    res.render('./treasures/edit', {title: "Edit Treasure", treasure: treasure});
+   });
+}
 
 // UPDATE TREASURE PAGE
-var edit = function(req, res, next) {
+var editTreasure = function(req, res, next) {
   var id = req.params.id;
 
   Treasure.findById({_id: id}, function(error, treasure) {
@@ -75,13 +72,15 @@ var edit = function(req, res, next) {
 
     if (req.body.name) treasure.name = req.body.name;
     if (req.body.description) treasure.description = req.body.description;
+    if (req.body.img_url) treasure.img_url= req.body.img_url;
     if (req.body.street) treasure.street= req.body.street;
     if (req.body.city) treasure.city = req.body.city;
     if (req.body.state) treasure.state= req.body.state;
-    if (req.body.zip) treasure.zip = req.body.zip;
+    if (req.body.zip) treasure.zipcode = req.body.zipcode;
 
     treasure.save(function(error) {
       if (error) res.json({message: 'Treasure successfully updated'});
+      res.redirect("./treasures/" + id);
     });
   });
 };
@@ -101,7 +100,8 @@ module.exports = {
    index: index,
    newTreasure: newTreasure,
    create: create,
-   edit: edit,
+   editNew: editNew,
+   editTreasure: editTreasure,
    show: show,
    remove: remove
 }

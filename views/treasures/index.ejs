@@ -1,5 +1,6 @@
 <% include ../partials/_head %>
 <% include ../partials/_nav %>
+
    <h1 class="center"><%= title %>
     <%= user.username.split('@',1)%>!
    </h1>
@@ -23,11 +24,13 @@
           <%= treasure.zipcode %>
         </div>
         <div class="card-action">
-          <a href="/treasures/<%=treasure._id %>/edit">Edit Treasure</a>
+          <a href="/treasures/<%= treasure._id %>/edit">Edit Treasure</a>
+          <a href="/treasures/<%= treasure._id %>">Delete Treasure</a>
         </div>
   </div>
   </div>
   <% }); %>
   </div>
   </div>
+
 <% include ../partials/_footer %>
