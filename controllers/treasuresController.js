@@ -14,7 +14,8 @@ var index = function(req, res, next) {
 
 // NEW TREASURE
 var newTreasure = function(req, res, next) {
-  res.render('./treasures/new');
+// Exporting User Object with Rendered Views to change displays
+  res.render('./treasures/new', {user: req.user});
 }
 
 // CREATE TREASURE
