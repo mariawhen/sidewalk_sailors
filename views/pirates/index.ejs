@@ -11,11 +11,13 @@
         <div class="card-image">
           <img id="pirate-image" src=" <%= pirate.img_url %> "/>
           <span class="card-title">
-               <p><%= pirate.username %></p>
           </span>
         </div>
         <div class="card-content">
-          <%= pirate.zipcode %>
+          <p>
+            <%= pirate.username.split('@')[0].charAt(0).toUpperCase() + pirate.username.split('@')[0].slice(1).toLowerCase()%>
+          </p>
+          Location:<%= pirate.zipcode %>
         </div>
         <div class="card-action">
           <a href="/pirates/<%= pirate._id %>">Profile Page</a>
