@@ -14,14 +14,24 @@
     </span>
   </div>
   <div class="card-content">
-    <%= treasure.description %>
-    <%= treasure.street %>
-    <%= treasure.city %>
-    <%= treasure.state %>
-    <%= treasure.zipcode %>
+    <p><%= treasure.description %></p>
+    <p><%= treasure.street %></p>
+    <p><%= treasure.city %></p>
+    <p><%= treasure.state %></p>
+    <p><%= treasure.zipcode %></p>
   </div>
   <div class="card-action">
-    <a href="/treasures/<%=treasure._id %>/edit">Edit Treasure</a>
+    <span class="left">
+    <form method="GET" action="/treasures/<%=treasure._id %>/edit" >
+      <button class="waves-effect waves-light btn" type="submit" >Edit Treasure</button>
+    </form>
+    </span>
+    <span class="right">
+    <form method="POST" action="treasures/<%= treasure._id %>?_method=DELETE">
+      <button class="waves-effect waves-light btn" type="submit">Delete Treasure</button>
+    </span>
+    </form>
+    <br><br>
   </div>
 </div>
 </div>
