@@ -61,7 +61,7 @@ var show = function(req, res, next) {
     if(error) res.json({message: 'Could not find treasure because: ' + error});
     // api time below yo
     // res.json({treasure: treasure});
-    res.render('./treasures/show', {title: "Your New Treasure", user: req.user});
+    res.render('./treasures/show', {title: "Your New Treasure", user: req.user, treasure: treasure});
    });
 }
 
