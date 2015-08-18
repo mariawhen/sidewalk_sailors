@@ -17,9 +17,15 @@ var LocalStrategy = require('passport-local').Strategy;
 var db = require('./models/db');
 var app = express();
 
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/sidewalk_sailors');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+//heroku enviroment listen
+// app.listen(process.envPORT || 3000);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -56,6 +62,10 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+//start server
+app.listen();
+console.log('3000 is where the magic happens!');
 
 // error handlers
 
