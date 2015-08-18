@@ -56,12 +56,13 @@ router.get('/about', aboutController.about);
 
 /* Treasure CRUD */
 
-router.get(  '/treasures',             isLoggedIn, treasuresController.index);
-router.get(  '/treasures/new',         isLoggedIn, treasuresController.newTreasure);
-router.post( '/treasures',             isLoggedIn, treasuresController.create);
-router.get(  '/treasures/:id',         isLoggedIn, treasuresController.show);
-router.get(  '/treasures/:id/edit',    isLoggedIn, treasuresController.editNew);
+router.get(   '/treasures',             isLoggedIn, treasuresController.index);
+router.get(   '/treasures/new',         isLoggedIn, treasuresController.newTreasure);
+router.post(  '/treasures',             isLoggedIn, treasuresController.create);
+router.get(   '/treasures/:id',         isLoggedIn, treasuresController.show);
+router.get(   '/treasures/:id/edit',    isLoggedIn, treasuresController.editNew);
 router.put(  '/treasures/:id/',        isLoggedIn, treasuresController.editTreasure);
+router.delete(  '/treasures/:id',         isLoggedIn, treasuresController.removeTreasure);
 
 // register
 router.get(  '/register', piratesController.newPirate);
