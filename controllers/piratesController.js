@@ -40,8 +40,13 @@ var show = function(req, res, next) {
 
   Pirate.findById({_id: id}, function(error, pirate) {
     if(error) res.json({message: 'Could not find pirate because: ' + error});
-
-    res.json({pirate: pirate});
+    res.render(
+      'pirates/:id', {
+        pirate: req.user
+      }
+    )
+    // api time!
+    // res.json({pirate: pirate});
    });
 }
 
@@ -76,10 +81,10 @@ var remove = function(req, res, next) {
 };
 
 module.exports = {
-   index: index,
+   index:     index,
    newPirate: newPirate,
-   create: create,
-   edit: edit,
-   show: show,
-   remove: remove
+   create:    create,
+   edit:      edit,
+   show:      show,
+   remove:    remove
 }

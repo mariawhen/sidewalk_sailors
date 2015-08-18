@@ -2,9 +2,11 @@
 <% include ../partials/_nav %>
    <h1><%= title %></h1>
    <p><%= title %></p>
-<<<<<<< HEAD
-<%= user.username %>
-=======
 
->>>>>>> fc3eeb4965d0548f3121dc9569681b91ada63721
+<h2>Treasure List</h2>
+<ul>
+    <% treasures.forEach(function(treasure) { %>
+        <li><%= treasure.name %> - <img src="/images/<%= treasure.img_url %>"> | <a href="/treasures/<%= treasure.id %>/edit">EDIT</a> | <a href="/treasures/<%= treasure.id %>">DELETE</a> </li>
+    <% }); %>
+</ul>
 <% include ../partials/_footer %>

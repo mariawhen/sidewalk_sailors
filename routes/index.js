@@ -1,5 +1,6 @@
 var express  = require('express'),
-    passport = require('passport');
+    passport = require('passport'),
+    methodOverride = require('method-override');
 // models
 var Pirate   = require('../models/Pirate');
 // router
@@ -58,7 +59,8 @@ router.get(  '/treasures',             treasuresController.index);
 router.get(  '/treasures/new',         treasuresController.newTreasure);
 router.post( '/treasures',             treasuresController.create);
 router.get(  '/treasures/:id',         treasuresController.show);
-router.get(  '/treasures/:id/edit',    treasuresController.edit);
+router.get(  '/treasures/:id/edit',    treasuresController.editNew);
+router.put(  '/treasures/:id/',       treasuresController.editTreasure);
 
 // register
 router.get(  '/register', piratesController.newPirate);
@@ -71,13 +73,17 @@ router.post( '/login', authenticatePirate, sessionsController.create);
 // logout
 router.get(  '/logout', sessionsController.destroy);
 
-module.exports = router;
+//  module.exports = router;
 
 /* Pirate CRUD */
 router.get( '/pirates',             piratesController.index);
 router.get( '/pirates/new',         piratesController.newPirate);
 router.get( '/pirates/:id',     piratesController.show);
 router.get( '/pirates/:id/edit',     piratesController.edit);
+
+//File upload
+app.get('/upload', common.imageForm);
+app.post('/upload', common.uploadImage);
 
 // export router to app
 module.exports = router;
