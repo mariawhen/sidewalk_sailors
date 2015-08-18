@@ -5,33 +5,33 @@
     <form class="col s12" action="/treasures" method="POST">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="name" name="name" id="name" type="text" class="validate">
-          <label for="name">Name</label>
+          <input name="name" id="name" type="text" class="validate">
+          <label for="name">Treasure Name</label>
         </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="img_url" class="materialize-textarea" name="img_url">
-          <label for="description">Description</label>
+          <input id="img_url" type="text" class="materialize-textarea" name="img_url">
+          <label for="img_url">Upload Image Url</label>
         </div>
          <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
           <label for="description">Description</label>
         </div>
          <div class="input-field col s12">
-          <input id="street" name="street" type="street" class="validate">
+          <input id="street" name="street" type="text" class="validate">
           <label for="street">Street</label>
         </div>
         <div class="input-field col s12">
-          <input id="city" name="city" type="city" class="validate">
+          <input id="city" name="city" type="text" class="validate">
           <label for="city">City</label>
         </div>
          <div class="input-field col s12">
-          <input id="state" name="state" type="state" class="validate">
+          <input id="state" name="state" type="text" class="validate">
           <label for="state">State</label>
         </div>
          <div class="input-field col s12">
-          <input id="zip" name="zip" type="zip" class="validate">
-          <label for="zip">Zip</label>
+          <input type="text" pattern="[0-9]*" maxlength="5" min="0" id="zipcode"  name="zipcode">
+          <label for="zipcode">Zip</label>
         </div>
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
