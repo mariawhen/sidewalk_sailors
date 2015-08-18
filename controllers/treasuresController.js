@@ -7,7 +7,7 @@ var Pirate = require('../models/Pirate');
 var index = function(req, res, next) {
   Treasure.find(function(error, treasures) {
     if (error) res.json({message: 'Could not find any treasure'});
-    res.render('./treasures', {title: "Here are our Treasures", treasures: treasures, user: req.user});
+    res.render('./treasures', {title: "Here are our Treasures", user: req.user, treasures: treasures });
   });
 }
 

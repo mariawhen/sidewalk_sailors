@@ -54,11 +54,11 @@ router.get('/', homeController.index);
 router.get('/about', aboutController.about);
 
 /* Treasure CRUD */
-router.get(  '/treasures',             treasuresController.index);
-router.get(  '/treasures/new',         treasuresController.newTreasure);
-router.post( '/treasures',             treasuresController.create);
-router.get(  '/treasures/:id',         treasuresController.show);
-router.get(  '/treasures/:id/edit',    treasuresController.edit);
+router.get(  '/treasures',          isLoggedIn,   treasuresController.index);
+router.get(  '/treasures/new',      isLoggedIn,   treasuresController.newTreasure);
+router.post( '/treasures',          isLoggedIn,   treasuresController.create);
+router.get(  '/treasures/:id',      isLoggedIn,   treasuresController.show);
+router.get(  '/treasures/:id/edit', isLoggedIn,   treasuresController.edit);
 
 // register
 router.get(  '/register', piratesController.newPirate);
@@ -70,8 +70,6 @@ router.post( '/login', authenticatePirate, sessionsController.create);
 
 // logout
 router.get(  '/logout', sessionsController.destroy);
-
-module.exports = router;
 
 /* Pirate CRUD */
 router.get( '/pirates',             piratesController.index);
