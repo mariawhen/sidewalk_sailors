@@ -1,12 +1,12 @@
 <% include ../partials/_head %>
 <% include ../partials/_nav %>
-   <h1>Register</h1>
+   <h1 class="center">Register</h1>
  <div class="parallax-container join-image"></div>
 <div class="container">
   <div class="row join-form">
     <form class="col s12" method="POST" action="/register">
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
           <input id="username" type="text" class="validate" name="username">
           <label for="username">Email</label>
         </div>
@@ -14,7 +14,7 @@
       <div class="row">
         <div class="input-field col s12">
           <input type="text" pattern="[0-9]*" maxlength="5" min="0" id="zipcode"  name="zipcode">
-          <label for="zipcode"> Zipcode</label>
+          <label for="zipcode">Zipcode</label><br>
         </div>
       </div>
       <div class="row">
