@@ -1,7 +1,33 @@
 <% include ../partials/_head %>
 <% include ../partials/_nav %>
-   <h1><%= title %></h1>
-   <p><%= title %></p>
-    <%= user.username %>
+   <h1 class="center"><%= title %>
+    <%= user.username.split('@',1)%>!
+   </h1>
 
+<div class="container">
+  <div class="row">
+   <% treasures.forEach(function(treasure){ %>
+    <div class="col s3">
+      <div class="card">
+        <div class="card-image">
+          <img id="treasure-image" src=" <%= treasure.img_url %> "/>
+          <span class="card-title">
+               <p><%= treasure.name %></p>
+          </span>
+        </div>
+        <div class="card-content">
+          <%= treasure.description %>
+          <%= treasure.street %>
+          <%= treasure.city %>
+          <%= treasure.state %>
+          <%= treasure.zipcode %>
+        </div>
+        <div class="card-action">
+          <a href="/treasures/<%=treasure._id %>/edit">Edit Treasure</a>
+        </div>
+  </div>
+  </div>
+  <% }); %>
+  </div>
+  </div>
 <% include ../partials/_footer %>

@@ -72,3 +72,11 @@ footer{
 #treasure-form{
   padding-right: 5%;
 }
+
+#treasure-image {
+  height: 200px;
+}
+
+#treasure-show-image{
+  height: 300px;
+}
