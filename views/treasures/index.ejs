@@ -2,7 +2,7 @@
 <% include ../partials/_nav %>
 
    <h1 class="center"><%= title %>
-    <%= user.username.split('@')[0].charAt(0).toUpperCase() + user.username.split('@')[0].slice(1).toLowerCase()%>!
+    <%= pirate.username.split('@')[0].charAt(0).toUpperCase() + pirate.username.split('@')[0].slice(1).toLowerCase()%>!
    </h1>
 
 <div class="container">
@@ -25,7 +25,9 @@
         </div>
         <div class="card-action">
           <a href="/treasures/<%= treasure._id %>/edit">Edit Treasure</a>
-          <a href="/treasures/<%= treasure._id %>">Delete Treasure</a>
+          <form method="POST" action="treasures/<%= treasure._id %>?_method=DELETE">
+            <button type="submit">Delete Treasure</button>
+          </form>
         </div>
   </div>
   </div>

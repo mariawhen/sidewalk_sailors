@@ -7,6 +7,7 @@ var Pirate = require('../models/Pirate');
 
 var Pirate = require('../models/Pirate');
 
+//INDEX PIRATE
 var index = function(req, res, next) {
   Pirate.find(function(error, pirates) {
     if (error) res.json({message: 'Could not find any pirate'});

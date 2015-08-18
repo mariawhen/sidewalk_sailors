@@ -8,14 +8,14 @@ var Pirate = require('../models/Pirate');
 var index = function(req, res, next) {
   Treasure.find(function(error, treasures) {
     if (error) res.json({message: 'Could not find any treasure'});
-    res.render('./treasures', {title: "Here are our Treasures", user: req.user, treasures: treasures });
+    res.render('./treasures', {title: "Here are our Treasures", pirate: req.user, treasures: treasures });
   });
 }
 
 // NEW TREASURE
 var newTreasure = function(req, res, next) {
 // Exporting User Object with Rendered Views to change displays
-  res.render('./treasures/new', {user: req.user});
+  res.render('./treasures/new', {pirate: req.user});
 }
 
 // CREATE TREASURE
@@ -49,7 +49,7 @@ var show = function(req, res, next) {
     if(error) res.json({message: 'Could not find treasure because: ' + error});
     // api time below yo
     // res.json({treasure: treasure});
-    res.render('./treasures/show', {title: "Your New Treasure", user: req.user, treasure: treasure});
+    res.render('./treasures/show', {title: "Your New Treasure", pirate: req.user, treasure: treasure});
    });
 }
 
@@ -87,7 +87,7 @@ var editTreasure = function(req, res, next) {
 };
 
 // DELETE TREASURE
-var remove = function(req, res, next) {
+var removeTreasure = function(req, res, next) {
   var id = req.params.id;
 
   Treasure.remove({_id: id}, function(error) {
@@ -104,5 +104,5 @@ module.exports = {
    editNew: editNew,
    editTreasure: editTreasure,
    show: show,
-   remove: remove
+   removeTreasure: removeTreasure
 }
