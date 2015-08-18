@@ -10,7 +10,7 @@ var Pirate = require('../models/Pirate');
 var index = function(req, res, next) {
   Pirate.find(function(error, pirates) {
     if (error) res.json({message: 'Could not find any pirate'});
-    res.render('./pirates', {title: "Here are our Pirates", pirates: pirates});
+    res.render('./pirates', {title: "Here are our Pirates", pirates: pirates, pirate: req.user});
   });
 }
 
@@ -42,7 +42,7 @@ var show = function(req, res, next) {
     if(error) res.json({message: 'Could not find pirate because: ' + error});
     res.render(
       'pirates/:id', {
-        pirate: req.user
+        pirate: pirate
       }
     )
     // api time!
