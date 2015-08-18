@@ -18,6 +18,7 @@ var db = require('./models/db');
 var app = express();
 
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/sidewalk_sailors');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
