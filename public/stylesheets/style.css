@@ -18,8 +18,9 @@ a {
 }
 
 .search-row{
-  margin-left: 45%;
+  margin-left: 60%;
   margin-top: 25px;
+  width: 40%;
 }
 
 .nav-wrapper{
@@ -78,5 +79,9 @@ footer{
 }
 
 #treasure-show-image{
+  height: 300px;
+}
+
+.foot{
   height: 300px;
 }
