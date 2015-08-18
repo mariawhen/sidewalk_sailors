@@ -56,6 +56,7 @@ router.get('/about', aboutController.about);
 /* Treasure CRUD */
 router.get(  '/treasures',             treasuresController.index);
 router.get(  '/treasures/new',         treasuresController.newTreasure);
+router.post(  '/treasures/',         treasuresController.create);
 router.get(  '/treasures/show/:id',     treasuresController.show);
 router.get(  '/treasures/:id/edit',     treasuresController.edit);
 
