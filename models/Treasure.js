@@ -3,11 +3,15 @@ var mongoose = require('mongoose');
 var TreasureSchema = new mongoose.Schema({
     name: String,
     description: String,
+    img_url: String,
     street: String,
     city: String,
     state: String,
-    zip: String,
-    archived: Boolean,
+    zipcode: String,
+    archived: {
+        type: Boolean,
+        default: false
+    },
     posted_date: {
         type: Date,
         default: Date.now
