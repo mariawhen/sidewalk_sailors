@@ -3,6 +3,7 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
+    mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     connect = require('connect'),
     methodOverride = require('method-override'); //used to manipulate POST
@@ -19,11 +20,13 @@ var app = express();
 var router = express.Router();
 
 var mongoose = require('mongoose');
+
 var mongoURI = 'mongodb://localhost/sidewalk_sailors';
-if (process.env.NODE_ENV ==='production') {
-  mongoURI = process.env.MONGOLAB_URI;
+if (process.env.NODE_ENV === 'production') {
+  mongoURI = process.env.MONGOLAB_URI
 }
-mongoose.connect('mongoURI');
+
+mongoose.connect(mongoURI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
