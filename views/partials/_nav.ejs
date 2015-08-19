@@ -1,10 +1,17 @@
 <ul id="dropdown1" class="dropdown-content">
 <% if (typeof pirate !='undefined') { %>
   <li><a href="/pirates/<%= pirate.id %>">Your Profile</a></li>
+  <li class="divider"></li>
+  <li class="divider"></li>
   <li><a href="/treasures/new">Add Your Treasure</a></li>
   <li class="divider"></li>
+  <li class="divider"></li>
   <li><a href="/treasures">View all Treasures</a></li>
+  <li class="divider"></li>
+  <li class="divider"></li>
   <li><a href="/logout">Logout</a></li>
+  <li class="divider"></li>
+
 <% }else { %>
        <li><a href="/login">Login</a></li>
        <li><a href="/register">Join Our Crew</a></li>
@@ -15,7 +22,7 @@
      <a href="/" class="brand-logo">Sidewalk Sailors</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <li><a href="/about">About Us</a></li>
+       <li><a href="/about">About Crew</a></li>
     <% if (typeof pirate !='undefined') { %>
     <% } %>
        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Poop Deck<i class="material-icons right">arrow_drop_down</i></a></li>

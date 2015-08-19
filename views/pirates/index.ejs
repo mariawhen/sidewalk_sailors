@@ -14,13 +14,13 @@
           </span>
         </div>
         <div class="card-content">
-          <p>
-            <%= pirate.username.split('@')[0].charAt(0).toUpperCase() + pirate.username.split('@')[0].slice(1).toLowerCase()%>
-          </p>
-          Location:<%= pirate.zipcode %>
+          <h4>
+           <%= pirate.username.split('@')[0].charAt(0).toUpperCase() + pirate.username.split('@')[0].slice(1).toLowerCase()%>
+          </h4>
+          <p>Near: <%= pirate.zipcode %></p>
         </div>
         <div class="card-action">
-          <a href="/pirates/<%= pirate._id %>">Profile Page</a>
+          <a href="/pirates/<%= pirate._id %>">Pirate Page</a>
         </div>
   </div>
   </div>

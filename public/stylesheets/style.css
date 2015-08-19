@@ -76,11 +76,11 @@ footer{
 }
 
 #treasure-image {
-  height: 200px;
+  height: 250px;
 }
 
 #treasure-show-image{
-  height: 300px;
+  height: 360px;
 }
 
 .foot{
@@ -92,11 +92,26 @@ footer{
   padding-top: 0%;
 
 }
+#photo-container {
+    width: 1000px;
+    overflow: hidden;
+    background: white;
+}
 
+.data{
+  padding-top: 5%;
+}
+
+.card-home{
+  height: 370px;
+  width: 400px;
+}
+
+.comment-board{
+  border: 2px solid black;
+}
 .about-imgs {
   /*background-color: #A4C2BC;*/
   /*background-color: #9E0B16;*/
   background-color: #C0303F;
 }
-
-

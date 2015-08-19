@@ -10,11 +10,11 @@
   <div class="card-image">
     <img id="pirate-image" src=" <%= pirate.img_url %> "/>
     <span class="card-title">
-         <p><%= pirate.piratename %></p>
     </span>
   </div>
   <div class="card-content">
-    <%= pirate.zipcode %>
+    <p><%= pirate.username %></p>
+    <p><%= pirate.zipcode %></p>
   </div>
   <div class="card-action">
     <a href="/pirates/<%=pirate._id %>/edit">Edit Your Profile</a>
