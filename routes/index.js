@@ -111,7 +111,7 @@ router.delete('/pirates/:id/',  isLoggedIn, piratesController.removePirate);
 =====================================*/
 
 // show all treasures
-router.get('/treasures',          isLoggedIn, treasuresController.listTreasures);
+router.get('/treasures',          /*isLoggedIn,*/ treasuresController.listTreasures);
 // show the add treasure form
 router.get('/treasures/new',      isLoggedIn, treasuresController.newTreasureView);
 // create a new treasure

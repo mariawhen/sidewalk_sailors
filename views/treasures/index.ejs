@@ -1,9 +1,7 @@
 <% include ../partials/_head %>
 <% include ../partials/_nav %>
 
-   <h1 class="center"><%= title %>
-    <%= pirate.username.split('@')[0].charAt(0).toUpperCase() + pirate.username.split('@')[0].slice(1).toLowerCase()%>!
-   </h1>
+
 
 <div class="container">
   <div class="row">
@@ -24,6 +22,7 @@
           <p><%= treasure.city %></p>
           <p><%= treasure.state %></p>
           <p><%= treasure.zipcode %></p>
+          <p>Owner: <img src="<%= avatar %>"></p>
         </div>
         <div class="card-action">
           <a href="/treasures/<%= treasure._id %>/edit">Edit Treasure</a>
