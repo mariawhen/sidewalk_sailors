@@ -4,22 +4,22 @@
  <div class="parallax-container join-image"></div>
 <div class="container">
   <div class="row join-form">
-    <form class="col s12" method="POST" action="/pirates?_method=PUT">
+    <form class="col s12" method="POST" action="/pirates/<%= pirate.id %>?_method=PUT">
       <div class="row">
         <div class="input-field col s12">
-          <input id="username" value="<%= pirate.username %>" type="text" class="validate" name="username">
+          <input type="text" name="username" id="username" value="<%= pirate.username %>" class="validate">
           <label for="username">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input type="text" value="<%= pirate.zipcode %>" pattern="[0-9]*" maxlength="5" min="0" id="zipcode"  name="zipcode">
+          <input type="text" name="zipcode" value="<%= pirate.zipcode %>" pattern="[0-9]*" maxlength="5" min="0" id="zipcode">
           <label for="zipcode">Zipcode</label><br>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" value="<%= pirate.password %>" class="validate" name="password">
+          <input type="password" name="password" id="password" value="<%= pirate.password %>" class="validate" name="password">
           <label for="password">Password</label>
         </div>
       </div>

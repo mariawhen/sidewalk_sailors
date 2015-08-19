@@ -72,6 +72,7 @@ var editPirate = function(req, res, next) {
 
     pirate.save(function(error) {
       if (error) res.json({message: 'Pirate successfully updated'});
+      res.redirect('/pirates/' + id);
     });
   });
 };
