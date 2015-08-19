@@ -115,3 +115,28 @@ footer{
   /*background-color: #9E0B16;*/
   background-color: #C0303F;
 }
+
+.chat-input-div{
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+.chat-input{
+  width: 85%;
+  height: 45px
+}
+
+.chat-area{
+  border: 2px solid black;
+  height: 400px;
+}
+
+.chat-submit{
+  position: absolute;
+  bottom: 0;
+}
+
+.google-maps{
+  border: 2px solid black;
+  height: 500px;
+}
