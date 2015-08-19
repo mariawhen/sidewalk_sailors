@@ -1,6 +1,8 @@
-####Sidewalk Sailors
+#Sidewalk Sailors
 
-Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors)
+##App Link to [Heroku](https://sidewalk-sailors.herokuapp.com/)
+
+##Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors) - With WireFrames
 
 ### Logo
 ![Sidewalk Sailors](https://i.imgur.com/0ETpRGT.png)
