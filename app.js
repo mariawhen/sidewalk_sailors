@@ -19,11 +19,17 @@ var app = express();
 var router = express.Router();
 
 var mongoURI = 'mongodb://localhost/sidewalksailors';
+
+console.log('process.env.NODE_ENV: ' + process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === 'production') {
   mongoURI = process.env.MONGOLAB_URI;
 }
 
+console.log('mongoURI: ' + mongoURI);
+
 mongoose.connect(mongoURI);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -64,10 +70,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-//start server
-// app.listen();
-console.log('3000 is where the magic happens!');
 
 // error handlers
 
