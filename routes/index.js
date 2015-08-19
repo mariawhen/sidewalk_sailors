@@ -4,6 +4,7 @@ var express  = require('express'),
 
 // required models
 var Pirate   = require('../models/Pirate');
+var db = require('../models/db');
 
 // router
 var router   = express.Router();
