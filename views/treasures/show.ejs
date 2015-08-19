@@ -32,15 +32,15 @@
       </div>
     </div>
 
-    <div class="col s6 google-maps">
-      <h3>This is where Google Maps API goes</h3>
+    <div class="col s6" id="map">
+      <script type="text/javascript" src="/javascripts/google-maps.js"></script>
     </div>
   </div>
 
   <div class="parallax-container comment-board">
     <div class="col s12">
       <div class="chat-area">
-        <h3>This is the comment/live chat board</h3>
+        <h3>Pirate Talk Inside</h3>
       </div>
     </div>
     <span class="center">
@@ -55,4 +55,22 @@
   </div>
 </div>
 </div>
-<% include ../partials/_footer %>
+<div class="parallax-container foot">
+  <div class="parallax">
+    <img src="https://images.unsplash.com/photo-1417444900330-dc44c79af021?q=80&fm=jpg&s=83b3780f886b71ea31393032ce4caf9a">
+  </div>
+</div>
+<footer class="black center">
+  &copy; 2015 Sidewalk Sailors
+</footer>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/materialize/dist/js/materialize.min.js"></script>
+<script type="text/javascript" src="/bower_components/slick-carousel/slick/slick.min.js"></script>
+<script type="text/javascript" src="/javascripts/slick.js"></script>
+<script type="text/javascript" src="/javascripts/materialize.js"></script>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoexb3TQB9EoG0phPDzO0fqO6q467mbPg&callback=initMap">
+</script>
+</body>
+</html>
