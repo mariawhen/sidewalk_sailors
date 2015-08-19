@@ -27,15 +27,15 @@ var createTreasure = function(req, res, next) {
         description: req.body.description,
         img_url: req.body.img_url,
         cross_street: req.body.cross_street,
-        city: req.body.city,
-        state: req.body.state,
+        // city: req.body.city,
+        // state: req.body.state,
         zipcode: req.body.zipcode,
         pirate_id: req.user.id
       });
 
   treasure.save(function(error) {
     if (error) res.json({message: 'Could not create treasure because: ' + error});
-    res.redirect("./treasures/" + newTreasure.id);
+    res.redirect("./treasures/" + treasure.id);
   });
 };
 
