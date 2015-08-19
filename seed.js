@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/sidewalk_sailors');
+// mongoose.connect('mongodb://localhost:27017/sidewalk_sailors');
 console.log('Mongoose connected');
 var Pirate = require('./models/Pirate');
 var Treasure = require('./models/Treasure');

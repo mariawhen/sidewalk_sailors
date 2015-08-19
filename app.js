@@ -19,21 +19,21 @@ var db = require('./models/db');
 var app = express();
 var router = express.Router();
 
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-var mongoURI = 'mongodb://localhost/sidewalk_sailors';
-if (process.env.NODE_ENV === 'production') {
-  mongoURI = process.env.MONGOLAB_URI
-}
+// var mongoURI = 'mongodb://localhost/sidewalk_sailors';
+// if (process.env.NODE_ENV === 'production') {
+//   mongoURI = process.env.MONGOLAB_URI
+// }
 
-mongoose.connect(mongoURI);
+// mongoose.connect(mongoURI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //heroku enviroment listen
-app.listen(process.env.PORT || 3000);
+// app.listen(process.env.PORT || 3000);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
