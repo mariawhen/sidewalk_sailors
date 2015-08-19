@@ -11,23 +11,29 @@
     <div class="col s3">
       <div class="card">
         <div class="card-image">
-          <img id="treasure-image" src=" <%= treasure.img_url %> "/>
+          <a href="/treasures/<%= treasure.id %>">
+            <img id="treasure-image" src=" <%= treasure.img_url %> "/>
+          </a>
           <span class="card-title">
                <p><%= treasure.name %></p>
           </span>
         </div>
         <div class="card-content">
-          <%= treasure.description %>
-          <%= treasure.street %>
-          <%= treasure.city %>
-          <%= treasure.state %>
-          <%= treasure.zipcode %>
-        </div>
-        <div class="card-action">
-          <a href="/treasures/<%= treasure._id %>/edit">Edit Treasure</a>
-          <form method="POST" action="treasures/<%= treasure._id %>?_method=DELETE">
-            <button type="submit">Delete Treasure</button>
-          </form>
+          <p>
+            <%= treasure.description %>
+          </p>
+          <p>
+            <%= treasure.street %>
+          </p>
+          <p>
+            <%= treasure.city %>
+          </p>
+          <p>
+            <%= treasure.state %>
+          </p>
+          <p>
+            <%= treasure.zipcode %>
+          </p>
         </div>
   </div>
   </div>

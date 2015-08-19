@@ -4,27 +4,44 @@
 <%= pirate.username.split('@')[0].charAt(0).toUpperCase() + pirate.username.split('@')[0].slice(1).toLowerCase()%>!
 </h1>
 <div class="container">
-<div class="row">
-  <div class="col s6 offset-s3">
-<div class="card">
-  <div class="card-image">
-    <img id="treasure-show-image" src=" <%= treasure.img_url %> "/>
-    <span class="card-title">
-         <p><%= treasure.name %></p>
-    </span>
+  <div class="row">
+    <div class="col s6">
+      <div class="card">
+        <div class="card-image">
+          <img id="treasure-show-image" src=" <%= treasure.img_url %> "/>
+          <span class="card-title">
+            <p><%= treasure.name %></p>
+          </span>
+        </div>
+        <div class="card-content">
+          <%= treasure.description %>
+          <%= treasure.street %>
+          <%= treasure.city %>
+          <%= treasure.state %>
+          <%= treasure.zipcode %>
+        </div>
+        <div class="card-action">
+          <form method="GET" action="/treasures/<%= treasure._id %>/edit" >
+            <button class="waves-effect waves-light btn left blue" type="submit">Edit Treasure</button>
+          </form>
+          <form method="POST" action="treasures/<%= treasure._id %>?_method=DELETE">
+            <button class="waves-effect waves-light btn right red" type="submit">Delete Treasure</button>
+          </form>
+          <br><br>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s6 google-maps">
+      <h3>This is where Google Maps API goes</h3>
+    </div>
   </div>
-  <div class="card-content">
-    <%= treasure.description %>
-    <%= treasure.street %>
-    <%= treasure.city %>
-    <%= treasure.state %>
-    <%= treasure.zipcode %>
+
+  <div class="parallax-container comment-board">
+    <div class="col s12">
+      <h3>This is the comment/live chat board</h3>
+    </div>
   </div>
-  <div class="card-action">
-    <a href="/treasures/<%=treasure._id %>/edit">Edit Treasure</a>
-  </div>
+<br><br>
 </div>
-</div>
-</div>
-  </div>
 <% include ../partials/_footer %>
