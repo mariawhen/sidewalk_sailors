@@ -39,29 +39,18 @@
 
   <div class="parallax-container comment-board">
     <div class="col s12">
-      <h3>This is the comment/live chat board</h3>
+      <div class="chat-area">
+        <h3>This is the comment/live chat board</h3>
+      </div>
     </div>
-  </div>
-<br><br>
-
-  <div class="card-content">
-    <p><%= treasure.description %></p>
-    <p><%= treasure.cross_street %></p>
-    <p><%= treasure.city %></p>
-    <p><%= treasure.state %></p>
-    <p><%= treasure.zipcode %></p>
-  </div>
-  <div class="card-action">
-    <span class="left">
-    <form method="GET" action="/treasures/<%=treasure._id %>/edit" >
-      <button class="waves-effect waves-light btn" type="submit" >Edit Treasure</button>
+    <span class="center">
+    <form action="/#" class="chat-input-div center" method="POST" accept-charset="utf-8">
+      <i class="material-icons prefix left">mode_edit</i>
+      <label for="textarea1">Pirate Talk</label><br>
+      <input id="textarea1" class="materialize-input chat-input" length="120"></input>
+      <button type="submit" class="waves-effect waves-light btn yellow">ARRgh</button>
     </form>
-    </span>
-    <span class="right">
-    <form method="POST" action="treasures/<%= treasure._id %>?_method=DELETE">
-      <button class="waves-effect waves-light btn" type="submit">Delete Treasure</button>
-    </span>
-    </form>
+  </div>
     <br><br>
   </div>
 </div>
