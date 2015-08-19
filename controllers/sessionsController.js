@@ -9,11 +9,8 @@ var newSessionView = function(req, res) {
 var createSession = function(req, res, next) {
   req.session.save(function(err) {
     if (err) return next(err);
-    //
-    // console.log(req.session.user.id);
-    res.redirect('/pirates/' + req.user.id, {
-        pirate: req.user
-      });
+
+    res.redirect('/pirates/' + req.user.id);
   });
 };
 

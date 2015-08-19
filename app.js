@@ -49,8 +49,8 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 // auth middleware
 app.use(require('express-session')({
   secret: 'jeong sings',
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());

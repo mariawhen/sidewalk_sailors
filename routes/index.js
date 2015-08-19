@@ -21,7 +21,9 @@ var homeController      = require('../controllers/homeController'),
 
 var authenticatePirate  = passport.authenticate(
   'local',
-  {failureRedirect: '/login'}
+  {
+    // successRedirect: '/pirates',
+    failureRedirect: '/login'}
 );
 
 var isLoggedIn = function(req, res, next) {
