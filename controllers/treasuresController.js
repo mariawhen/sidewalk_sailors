@@ -4,14 +4,27 @@ var Pirate = require('../models/Pirate');
 
 // List all Treasures
 var listTreasures = function(req, res, next) {
-  Treasure.find(function(error, treasures) {
-    if (error) res.json({message: 'Could not find any treasure'});
-    res.render('./treasures', {
-      title: "Here are our Treasures",
-      pirate: req.user, treasures: treasures
+    Treasure.find(function(error, treasures) {
+        if (error) res.json({
+            message: 'Could not find any treasure'
+        });
+        var ids = treasures.map(function(treasure) { return treasure.pirate_id; });
+        // console.log(ids);
+
+        Pirate.find({_id: {$in: ids}}, function(err, pirates) {
+          pirates.forEach(function(pirate) {
+            // console.log(pirate.avatar);
+                res.render('./treasures', {
+                title: "Here are our Treasures",
+                treasures: treasures,
+                avatar: pirate.avatar
+              });
+          });
+
+        });
     });
-  });
 };
+
 
 // Render form for adding a new Treasure
 var newTreasureView = function(req, res, next) {
@@ -76,7 +89,7 @@ var editTreasure = function(req, res, next) {
 
     treasure.save(function(error) {
       if (error) res.json({message: 'Treasure successfully updated'});
-      res.redirect("./treasures/" + id);
+      res.redirect("/treasures/" + id);
     });
   });
 };
