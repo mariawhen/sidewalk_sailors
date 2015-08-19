@@ -1,22 +1,23 @@
 var express  = require('express'),
     passport = require('passport'),
     methodOverride = require('method-override');
-// models
+
+// required models
 var Pirate   = require('../models/Pirate');
+
 // router
 var router   = express.Router();
 
 //require controllers
-var aboutController     = require('../controllers/aboutController'),
-    treasuresController = require('../controllers/treasuresController'),
-    piratesController   = require('../controllers/piratesController');
-
-// require controllers
-var piratesController   = require('../controllers/piratesController'),
-    sessionsController  = require('../controllers/sessionsController'),
-    homeController      = require('../controllers/homeController'),
+var homeController      = require('../controllers/homeController'),
     aboutController     = require('../controllers/aboutController'),
-    treasuresController = require('../controllers/treasuresController');
+    treasuresController = require('../controllers/treasuresController'),
+    piratesController   = require('../controllers/piratesController'),
+    sessionsController  = require('../controllers/sessionsController');
+
+/*======================================
+=            Authentication            =
+======================================*/
 
 var authenticatePirate  = passport.authenticate(
   'local',
@@ -47,39 +48,80 @@ var loadCurrentPirate = function(req, res, next) {
   }
 };
 
-/* Home page */
+/*=============================
+=            LOGIN            =
+=============================*/
 
+router.get('/login',     sessionsController.newSessionView);
+router.post('/login',    authenticatePirate, sessionsController.createSession);
+
+/*==============================
+=            LOGOUT            =
+==============================*/
+
+router.get('/logout',    sessionsController.destroySession);
+
+/*================================
+=            REGISTER            =
+================================*/
+
+router.get('/register',  piratesController.newPirateView);
+router.post('/register', piratesController.createPirate);
+
+
+/*-----  End of Authentication  ------*/
+
+/*=================================
+=            HOME PAGE            =
+=================================*/
+
+/* Home page */
 router.get('/', homeController.index);
+
+/*==================================
+=            ABOUT PAGE            =
+==================================*/
 
 /* About page */
 router.get('/about', aboutController.about);
 
-/* Treasure CRUD */
+/*===================================
+=            PIRATE CRUD            =
+===================================*/
 
-router.get(   '/treasures',             isLoggedIn, treasuresController.index);
-router.get(   '/treasures/new',         isLoggedIn, treasuresController.newTreasure);
-router.post(  '/treasures',             isLoggedIn, treasuresController.create);
-router.get(   '/treasures/:id',         isLoggedIn, treasuresController.show);
-router.get(   '/treasures/:id/edit',    isLoggedIn, treasuresController.editNew);
-router.put(  '/treasures/:id/',        isLoggedIn, treasuresController.editTreasure);
-router.delete(  '/treasures/:id',         isLoggedIn, treasuresController.removeTreasure);
+// show all the pirates
+router.get('/pirates',          isLoggedIn, piratesController.listPirates);
+// render the new pirate form
+router.get('/pirates/new',      isLoggedIn, piratesController.newPirateView);
+// create a pirate
+router.post('/pirates/',        isLoggedIn, piratesController.createPirate);
+// show the pirate
+router.get('/pirates/:id',      isLoggedIn, piratesController.showPirate);
+// render the edit pirate form
+router.get('/pirates/:id/edit', isLoggedIn, piratesController.editPirateView);
+// edit a pirate
+router.put('/pirates/:id/',     isLoggedIn, piratesController.editPirate);
+// delete a pirate
+router.delete('/pirates/:id/',  isLoggedIn, piratesController.removePirate);
 
-// register
-router.get(  '/register', piratesController.newPirate);
-router.post( '/register', piratesController.create);
+/*=====================================
+=            TREASURE CRUD            =
+=====================================*/
 
-// login
-router.get(  '/login', sessionsController.new);
-router.post( '/login', authenticatePirate, sessionsController.create);
-
-// logout
-router.get(  '/logout', sessionsController.destroy);
-
-/* Pirate CRUD */
-router.get( '/pirates',             piratesController.index);
-router.get( '/pirates/new',         piratesController.newPirate);
-router.get( '/pirates/:id',         piratesController.show);
-router.get( '/pirates/:id/edit',    piratesController.edit);
+// show all treasures
+router.get('/treasures',          isLoggedIn, treasuresController.listTreasures);
+// show the add treasure form
+router.get('/treasures/new',      isLoggedIn, treasuresController.newTreasureView);
+// create a new treasure
+router.post('/treasures',         isLoggedIn, treasuresController.createTreasure);
+// show a treasure
+router.get('/treasures/:id',      isLoggedIn, treasuresController.showTreasure);
+// render the edit treasure form
+router.get('/treasures/:id/edit', isLoggedIn, treasuresController.editTreasureView);
+// update the treasure item
+router.put('/treasures/:id/',     isLoggedIn, treasuresController.editTreasure);
+// delete the treasure item
+router.delete('/treasures/:id',   isLoggedIn, treasuresController.removeTreasure);
 
 // export router to app
 module.exports = router;

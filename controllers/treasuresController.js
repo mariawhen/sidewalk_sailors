@@ -1,64 +1,63 @@
-
-// Controllers for Treasures
-
+// add models
 var Treasure = require('../models/Treasure');
 var Pirate = require('../models/Pirate');
 
-
-var index = function(req, res, next) {
+// List all Treasures
+var listTreasures = function(req, res, next) {
   Treasure.find(function(error, treasures) {
     if (error) res.json({message: 'Could not find any treasure'});
-    res.render('./treasures', {title: "Here are our Treasures", pirate: req.user, treasures: treasures });
+    res.render('./treasures', {
+      title: "Here are our Treasures",
+      pirate: req.user, treasures: treasures
+    });
   });
-}
+};
 
-// NEW TREASURE
-var newTreasure = function(req, res, next) {
+// Render form for adding a new Treasure
+var newTreasureView = function(req, res, next) {
 // Exporting User Object with Rendered Views to change displays
   res.render('./treasures/new', {pirate: req.user});
 }
 
-// CREATE TREASURE
-var create = function(req, res, next) {
-  // console.log('in POST');
-  // console.log('body:',req.user.id);
-  // console.log(res);
-  var newTreasure = new Treasure({name: req.body.name,
-                              description: req.body.description,
-                              img_url: req.body.img_url,
-                              street: req.body.street,
-                              city: req.body.city,
-                              state: req.body.state,
-                              zipcode: req.body.zipcode,
-                              pirate_id: req.user.id}
-                              );
-  //newTreasure.username = req.user.id;
+// Create a new Treasure
+var createTreasure = function(req, res, next) {
+  var treasure = new Treasure(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        img_url: req.body.img_url,
+        cross_street: req.body.cross_street,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        pirate_id: req.user.id
+      });
 
-  newTreasure.save(function(error) {
+  treasure.save(function(error) {
     if (error) res.json({message: 'Could not create treasure because: ' + error});
-    // res.redirect("./treasures/" + newTreasure.id);
     res.redirect("./treasures/" + newTreasure.id);
   });
 };
 
-// SHOW TREASURE PAGE
-var show = function(req, res, next) {
+// Show a Treasure
+var showTreasure = function(req, res, next) {
   var id = req.params.id;
 
   Treasure.findById({_id: id}, function(error, treasure) {
     if(error) res.json({message: 'Could not find treasure because: ' + error});
-    // api time below yo
+
+    // API
     // res.json({treasure: treasure});
     res.render('./treasures/show', {title: "Your New Treasure", pirate: req.user, treasure: treasure});
    });
 }
 
-// Edit Treasure
-var editNew = function(req, res, next) {
+// Render Edit Treasure Form
+var editTreasureView = function(req, res, next) {
   var id = req.params.id;
   Treasure.findById({_id: id}, function(error, treasure) {
     if(error) res.json({message: 'Could not edit treasure because: ' + error});
-    // api time below yo
+    // API
     // res.json({treasure: treasure});
     res.render('./treasures/edit', {title: "Edit Treasure", treasure: treasure});
    });
@@ -93,16 +92,17 @@ var removeTreasure = function(req, res, next) {
   Treasure.remove({_id: id}, function(error) {
     if (error) res.json({message: 'Could not delete treasure because ' + error});
 
-    res.json({message: 'Treasure successfully deleted'});
+    res.redirect('./treasures/');
+    // res.json({message: 'Treasure successfully deleted'});
   });
 };
 
 module.exports = {
-   index: index,
-   newTreasure: newTreasure,
-   create: create,
-   editNew: editNew,
-   editTreasure: editTreasure,
-   show: show,
-   removeTreasure: removeTreasure
+   listTreasures:    listTreasures,
+   newTreasureView:  newTreasureView,
+   createTreasure:   createTreasure,
+   editTreasureView: editTreasureView,
+   editTreasure:     editTreasure,
+   showTreasure:     showTreasure,
+   removeTreasure:   removeTreasure
 }
