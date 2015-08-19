@@ -4,7 +4,7 @@ var TreasureSchema = new mongoose.Schema({
     name: String,
     description: String,
     img_url: String,
-    street: String,
+    cross_street: String,
     city: {
         type: String,
         default: 'Los Angeles'
@@ -27,8 +27,7 @@ var TreasureSchema = new mongoose.Schema({
         default: Date.now
     },
     pirate_id: {
-        // type: mongoose.Schema.Types.ObjectId, ref: 'Pirate'
-        type: String
+        type: mongoose.Schema.Types.ObjectId, ref: 'Pirate'
     }
 });
 
