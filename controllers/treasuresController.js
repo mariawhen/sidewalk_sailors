@@ -27,8 +27,6 @@ var createTreasure = function(req, res, next) {
         description: req.body.description,
         img_url: req.body.img_url,
         cross_street: req.body.cross_street,
-        // city: req.body.city,
-        // state: req.body.state,
         zipcode: req.body.zipcode,
         pirate_id: req.user.id
       });
@@ -73,9 +71,7 @@ var editTreasure = function(req, res, next) {
     if (req.body.name) treasure.name = req.body.name;
     if (req.body.description) treasure.description = req.body.description;
     if (req.body.img_url) treasure.img_url= req.body.img_url;
-    if (req.body.street) treasure.street= req.body.street;
-    if (req.body.city) treasure.city = req.body.city;
-    if (req.body.state) treasure.state= req.body.state;
+    if (req.body.cross_street) treasure.cross_street= req.body.cross_street;
     if (req.body.zip) treasure.zipcode = req.body.zipcode;
 
     treasure.save(function(error) {
