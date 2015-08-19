@@ -18,17 +18,16 @@ var LocalStrategy = require('passport-local').Strategy;
 var app = express();
 var router = express.Router();
 
-var mongoURI = 'mongodb://localhost/sidewalksailors';
+// This is our heroku production Environment
+// if (process.env.NODE_ENV === 'production') {
+//   var mongoURI = 'mongodb://localhost/sidewalksailors';
 
-console.log('process.env.NODE_ENV: ' + process.env.NODE_ENV);
+//   console.log('process.env.NODE_ENV: ' + process.env.NODE_ENV);
+//   mongoURI = process.env.MONGOLAB_URI;
 
-if (process.env.NODE_ENV === 'production') {
-  mongoURI = process.env.MONGOLAB_URI;
-}
-
-console.log('mongoURI: ' + mongoURI);
-
-mongoose.connect(mongoURI);
+//   console.log('mongoURI: ' + mongoURI);
+//   mongoose.connect(mongoURI);
+// }
 
 
 // view engine setup

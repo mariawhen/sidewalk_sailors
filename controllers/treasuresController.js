@@ -85,7 +85,7 @@ var editTreasure = function(req, res, next) {
     if (req.body.description) treasure.description = req.body.description;
     if (req.body.img_url) treasure.img_url= req.body.img_url;
     if (req.body.cross_street) treasure.cross_street= req.body.cross_street;
-    if (req.body.zip) treasure.zipcode = req.body.zipcode;
+    if (req.body.zipcode) treasure.zipcode = req.body.zipcode;
 
     treasure.save(function(error) {
       if (error) res.json({message: 'Treasure successfully updated'});
