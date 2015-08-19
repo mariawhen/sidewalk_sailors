@@ -1,58 +1,65 @@
-// Controller for Pirates/Users
 var passport = require('passport');
 
+// require models
 var Pirate = require('../models/Pirate');
 
-// Controllers for Pirates
-
-var Pirate = require('../models/Pirate');
-
-var index = function(req, res, next) {
+// List all Pirates
+var listPirates = function(req, res, next) {
   Pirate.find(function(error, pirates) {
     if (error) res.json({message: 'Could not find any pirate'});
-    res.render('./pirates', {title: "Here are our Pirates", pirates: pirates});
+    res.render('./pirates', {
+      title: "Here are our Pirates",
+      pirates: pirates,
+      pirate: req.user
+    });
   });
+};
+
+// Render form for adding a new Pirate
+var newPirateView = function(req, res, next) {
+  res.render('./pirates/new', {pirate: req.user});
 }
 
-// NEW PIRATE
-var newPirate = function(req, res, next) {
-  res.render('./pirates/new');
-}
-
-// CREATE PIRATE
-var create = function(req, res) {
-  Pirate.register(new Pirate({username: req.body.username, zipcode: req.body.zipcode}), req.body.password, function(err, pirate) {
-      if (err) return res.render('pirates/new', {pirate: pirate});
+// Create a new Pirate
+var createPirate = function(req, res) {
+  Pirate.register(new Pirate(
+    {
+      username: req.body.username,
+      zipcode: req.body.zipcode
+    }), req.body.password, function(err, pirate) {
+      if (err) return res.render('pirates/new',
+        {pirate: pirate});
         passport.authenticate('local')(req, res, function() {
-        req.session.save(function(err) {
-          if (err) {
-            return next(err);
-          }
-          res.redirect('/');
+          req.session.save(function(err) {
+            if (err) {
+              return next(err);
+            }
+            res.redirect('/pirates/' + req.user.id);
         });
      });
   });
 };
 
-// SHOW PIRATE PAGE
-var show = function(req, res, next) {
+// Render Edit Pirate Form
+var editPirateView = function(req, res, next) {
   var id = req.params.id;
-
   Pirate.findById({_id: id}, function(error, pirate) {
-    if(error) res.json({message: 'Could not find pirate because: ' + error});
-    res.render(
-      'pirates/:id', {
-        pirate: req.user
-      }
-    )
-    // api time!
+    // delete this comment is the code works
+    // if(error) res.json({message: 'Could not edit pirate because: ' + error});
+    // res.render(
+    //   'pirates/:id', {
+    //     pirate: pirate
+    //   }
+    // )
+    if(error) res.json({message: 'Could not edit pirate because: ' + error});
+    // API
     // res.json({pirate: pirate});
+    res.render('./pirates/edit', {title: "Edit Pirate", pirate: pirate});
    });
 }
 
-
 // UPDATE PIRATE PAGE
-var edit = function(req, res, next) {
+var editPirate = function(req, res, next) {
   var id = req.params.id;
 
   Pirate.findById({_id: id}, function(error, pirate) {
@@ -69,8 +76,24 @@ var edit = function(req, res, next) {
   });
 };
 
-// DELETE PIRATE
-var remove = function(req, res, next) {
+// Show a Pirate
+var showPirate = function(req, res, next) {
+  var id = req.params.id;
+
+  Pirate.findById({_id: id}, function(error, pirate) {
+    if(error) res.json({message: 'Could not find pirate because: ' + error});
+    res.render(
+      './pirates/show', {
+        pirate: req.user
+      }
+    )
+    // API
+    // res.json({pirate: pirate});
+   });
+}
+
+// Remove a Pirate
+var removePirate = function(req, res, next) {
   var id = req.params.id;
 
   Pirate.remove({_id: id}, function(error) {
@@ -81,10 +104,11 @@ var remove = function(req, res, next) {
 };
 
 module.exports = {
-   index:     index,
-   newPirate: newPirate,
-   create:    create,
-   edit:      edit,
-   show:      show,
-   remove:    remove
+   listPirates:     listPirates,
+   newPirateView:   newPirateView,
+   createPirate:    createPirate,
+   editPirateView:  editPirateView,
+   editPirate:      editPirate,
+   showPirate:      showPirate,
+   removePirate:    removePirate
 }

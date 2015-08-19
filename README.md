@@ -1,6 +1,8 @@
-####Sidewalk Sailors
+#Sidewalk Sailors
 
-Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors)
+##App Link to [Heroku](https://sidewalk-sailors.herokuapp.com/)
+
+##Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors) - With WireFrames
 
 ### Logo
 ![Sidewalk Sailors](https://i.imgur.com/0ETpRGT.png)
@@ -16,22 +18,22 @@ There will be a 1 day expiration of posts. **After 24 hours from posting** the `
 ###User stories
 
 ###MVP
-[] login, log out,
-[] register
-[] find things
-  * by location box?
-  * by date?
-[] on item load, track popular items (featured items?)
-[] CRUD users
-[] CRUD items
+- [x] login, log out,
+- [x] register
+- [ ] find things
+  - by location box?
+  - by date?
+- [ ] on item load, track popular items (featured items?)
+- [(2/3 done)] CRUD users
+- [(2/3)] CRUD items
 
 ###Icebox
-[] star system (1-5 stars)
-  * reliability meter (icebox)
-  * count?
-[] follow (icebox)
-  * Hartl tutorial video has example of how this is done
-[] points for photo posts! (icebox)
+- [ ] star system (1-5 stars)
+  - reliability meter
+  - count?
+- [ ] follow pirates
+  - Hartl tutorial video has example of how this is done
+- [ ] points for photo posts!
 
 ###Getting Started
 Fork this app!
@@ -39,21 +41,30 @@ Fork this app!
 - `npm install`
 
 ###Design
+- 1. Bryan and Phil assigned to backend work:
+  - Routes
+  - Models, CRUD Pirates & Treasure
+  - Authentication
+- 2. Jaytee and Maria assigned to frontend work:
+  - Views
+  - Forms
+  - Ajax Calls, JQuery
 
-###Technology
--CSS
--SASS
--Javascript
--JQuery
--Materialize
--Normalize
--HTML5 Boilerplate starter code
--AJAX
--Node.js
--Mongoose
--MongoDB
--Express
--Bower
+###Technologies
+- CSS
+- SASS
+- Javascript
+- JQuery
+- Materialize
+- Normalize
+- HTML5 Boilerplate starter code
+- AJAX
+- Node.js
+- Mongoose
+- MongoDB
+- Express
+- Bower
+- Heroku
 
 ###Future
 Scale app to be usable globally.

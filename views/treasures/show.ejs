@@ -43,5 +43,27 @@
     </div>
   </div>
 <br><br>
+
+  <div class="card-content">
+    <p><%= treasure.description %></p>
+    <p><%= treasure.cross_street %></p>
+    <p><%= treasure.city %></p>
+    <p><%= treasure.state %></p>
+    <p><%= treasure.zipcode %></p>
+  </div>
+  <div class="card-action">
+    <span class="left">
+    <form method="GET" action="/treasures/<%=treasure._id %>/edit" >
+      <button class="waves-effect waves-light btn" type="submit" >Edit Treasure</button>
+    </form>
+    </span>
+    <span class="right">
+    <form method="POST" action="treasures/<%= treasure._id %>?_method=DELETE">
+      <button class="waves-effect waves-light btn" type="submit">Delete Treasure</button>
+    </span>
+    </form>
+    <br><br>
+  </div>
+</div>
 </div>
 <% include ../partials/_footer %>
