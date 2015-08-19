@@ -92,3 +92,14 @@ footer{
   padding-top: 0%;
 
 }
+
+#photo-container {
+    width: 1000px;
+    overflow: hidden;
+    background: white;
+}
+
+.data{
+  padding-top: 10%;
+}
+
