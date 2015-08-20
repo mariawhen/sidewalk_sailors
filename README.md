@@ -1,6 +1,7 @@
 #Sidewalk Sailors
 
 ##App Link to [Heroku](https://sidewalk-sailors.herokuapp.com/)
+##App Link to [Modulus](http://sidewalksailors-50393.onmodulus.net/)
 
 ##Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors) - With WireFrames
 
@@ -20,12 +21,9 @@ There will be a 1 day expiration of posts. **After 24 hours from posting** the `
 ###MVP
 - [x] login, log out,
 - [x] register
-- [ ] find things
-  - by location box?
-  - by date?
-- [ ] on item load, track popular items (featured items?)
-- [(2/3 done)] CRUD users
-- [(2/3)] CRUD items
+- [x] find things by location
+- [x] CRUD users
+- [x] CRUD items
 
 ###Icebox
 - [ ] star system (1-5 stars)
@@ -64,7 +62,9 @@ Fork this app!
 - MongoDB
 - Express
 - Bower
-- Heroku
+- Heroku (tried)
+- Modulus
+- Slick
 
 ###Future
 Scale app to be usable globally.
