@@ -5,8 +5,13 @@ var express        = require('express'),
     cookieParser   = require('cookie-parser'),
     mongoose       = require('mongoose'),
     bodyParser     = require('body-parser'),
-    connect        = require('connect'),
+    // remove connect, causes memory leak
+    // connect        = require('connect'),
     methodOverride = require('method-override'); //used to manipulate POST
+
+// prevent memory links instead of using default MemoryStore
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 // routes
 var routes = require('./routes/index');
