@@ -11,6 +11,11 @@ a {
   height: 300px;
 }
 
+.brand-logo{
+  height: 65%;
+  margin-top: 1%;
+}
+
 .index-search{
   padding-right: 0px;
   margin: 0px;
