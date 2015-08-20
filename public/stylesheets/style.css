@@ -16,6 +16,10 @@ a {
   margin-top: 1%;
 }
 
+.logo{
+  height: 100%;
+}
+
 .index-search{
   padding-right: 0px;
   margin: 0px;
