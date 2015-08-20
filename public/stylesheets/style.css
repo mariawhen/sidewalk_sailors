@@ -104,6 +104,7 @@ footer{
     width: 1000px;
     overflow: hidden;
     background: white;
+    height: 340px;
 }
 
 .data{
@@ -111,7 +112,7 @@ footer{
 }
 
 .card-home{
-  height: 370px;
+  height: 340px;
   width: 400px;
 }
 
@@ -153,3 +154,6 @@ footer{
   height: 50px;
 }
 
+.about-blurb{
+  margin-bottom: 5%;
+}
