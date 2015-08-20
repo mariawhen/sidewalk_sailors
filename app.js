@@ -1,11 +1,11 @@
-var express = require('express'),
-    path = require('path'),
-    favicon = require('serve-favicon'),
-    logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    mongoose = require('mongoose'),
-    bodyParser = require('body-parser'),
-    connect = require('connect'),
+var express        = require('express'),
+    path           = require('path'),
+    favicon        = require('serve-favicon'),
+    logger         = require('morgan'),
+    cookieParser   = require('cookie-parser'),
+    mongoose       = require('mongoose'),
+    bodyParser     = require('body-parser'),
+    connect        = require('connect'),
     methodOverride = require('method-override'); //used to manipulate POST
 
 // routes
@@ -15,7 +15,7 @@ var routes = require('./routes/index');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var app = express();
+var app    = express();
 var router = express.Router();
 
 // This is our heroku production Environment

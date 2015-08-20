@@ -194,12 +194,12 @@ var newTreasure = [
   //   cross_street: "8th and S Hobart Blvd",
   //   pirate_id: mongoose.Types.ObjectId("15d2ad76f7985b32e5f68ad2")
   // },{
-    name: "Sofa",
-    description: "chair",
-    img_url: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRxqFQoTCJPYt7TgsccCFcqXiAodPPEKBQ&url=http%3A%2F%2Fflickrhivemind.net%2FTags%2Fbookcase%2Ctexas%2FInteresting&ei=_K7SVZPqBMqvogS84qso&bvm=bv.99804247,d.cGU&psig=AFQjCNHPuq0EkEyvbX2oPfbSkVrUT7Rwnw&ust=1439957098658864",
-    cross_street: "8th and S Hobart Blvd",
-    pirate_id: "55d3d455d320c25e38def72d"
-  },
+  //   name: "Sofa",
+  //   description: "chair",
+  //   img_url: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRxqFQoTCJPYt7TgsccCFcqXiAodPPEKBQ&url=http%3A%2F%2Fflickrhivemind.net%2FTags%2Fbookcase%2Ctexas%2FInteresting&ei=_K7SVZPqBMqvogS84qso&bvm=bv.99804247,d.cGU&psig=AFQjCNHPuq0EkEyvbX2oPfbSkVrUT7Rwnw&ust=1439957098658864",
+  //   cross_street: "8th and S Hobart Blvd",
+  //   pirate_id: "55d3d455d320c25e38def72d"
+  // },
   {
     name: "Sofa",
     description: "chair",
