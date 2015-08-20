@@ -12,13 +12,12 @@ a {
 }
 
 .index-search{
-  padding: 0px;
+  padding-right: 0px;
   margin: 0px;
 }
 
 .search-row{
-  margin-left: ;
-  margin-top: ;
+  margin-right:0px;
   width: 100%;
   padding-left: 25%;
   padding-right: 5%;
@@ -108,7 +107,7 @@ footer{
 }
 
 .comment-board{
-  border: 2px solid black;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .about-imgs {
   /*background-color: #A4C2BC;*/
@@ -127,7 +126,6 @@ footer{
 }
 
 .chat-area{
-  border: 2px solid black;
   height: 400px;
 }
 
@@ -137,6 +135,12 @@ footer{
 }
 
 #map{
-  border: 2px solid black;
-  height: 500px;
+  top: 5px;
+  height: 530px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  }
+
+.top-spacer{
+  height: 50px;
 }
+
