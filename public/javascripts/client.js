@@ -11,7 +11,9 @@ socket.on('send-message', function(data){
 });
 
 function sendMessage(message) {
+  if ($('#textarea1').val().length > 1){
   $('.chat-area').append(message + '<br>');
+  }
 }
 
 function pullMessage() {
@@ -20,4 +22,12 @@ function pullMessage() {
 
 $('button').on('click', function(){
   socket.emit('send-message', pullMessage());
+  return $('#textarea1').val("");
 });
+
+$('#textarea1').on('keypress',function(event) {
+ if(event.keyCode == 13){
+  socket.emit('send-message', pullMessage());
+  }
+});
+
