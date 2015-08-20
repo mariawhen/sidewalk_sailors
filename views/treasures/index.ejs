@@ -2,7 +2,7 @@
 <% include ../partials/_nav %>
 
 
-
+<h1 class="center"><%= title %></h1>
 <div class="container">
   <div class="row">
    <% treasures.forEach(function(treasure){ %>
@@ -23,12 +23,6 @@
           <p><%= treasure.state %></p>
           <p><%= treasure.zipcode %></p>
           <p>Owner: <img src="<%= avatar %>"></p>
-        </div>
-        <div class="card-action">
-          <a href="/treasures/<%= treasure._id %>/edit">Edit Treasure</a>
-          <form method="POST" action="/treasures/<%= treasure._id %>?_method=DELETE">
-            <button type="submit">Delete Treasure</button>
-          </form>
         </div>
   </div>
   </div>

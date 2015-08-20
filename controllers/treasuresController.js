@@ -17,6 +17,7 @@ var listTreasures = function(req, res, next) {
                 res.render('./treasures', {
                 title: "Here are our Treasures",
                 treasures: treasures,
+                pirate: req.user,
                 avatar: pirate.avatar
               });
           });

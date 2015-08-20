@@ -57,18 +57,22 @@
     <!-- <form class="chat-input-div center" accept-charset="utf-8"> -->
       <i class="material-icons prefix left">mode_edit</i>
       <label for="textarea1">Pirate Talk</label><br>
-      <input id="textarea1" class="materialize-input chat-input" length="120"></input>
+      <input id="textarea1" class="materialize-input chat-input" length="120">
+      </input>
       <button class="waves-effect waves-light btn yellow">ARRgh</button>
     <!-- </form> -->
+        <script>
+            document.getElementById('textarea1').addEventListener('keypress', function(event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                }
+            });
+        </script>
   </div>
     <br><br>
   </div>
 </div>
 </div>
-<div class="parallax-container foot">
-  <div class="parallax">
-    <img src="https://images.unsplash.com/photo-1417444900330-dc44c79af021?q=80&fm=jpg&s=83b3780f886b71ea31393032ce4caf9a">
-  </div>
 </div>
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoexb3TQB9EoG0phPDzO0fqO6q467mbPg&callback=initMap">
