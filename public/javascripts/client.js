@@ -22,13 +22,12 @@ function pullMessage() {
 
 $('button').on('click', function(){
   socket.emit('send-message', pullMessage());
-  $('#textarea1').innerHTML = "";
+  return $('#textarea1').val("");
 });
 
 $('#textarea1').on('keypress',function(event) {
  if(event.keyCode == 13){
   socket.emit('send-message', pullMessage());
-  $('#textarea1').innerHTML = "";
   }
 });
 
