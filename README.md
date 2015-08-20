@@ -3,10 +3,9 @@
 ##App Link to [Modulus](http://sidewalksailors-50393.onmodulus.net/)
 ###App Link to [Heroku](https://sidewalk-sailors.herokuapp.com/)
 
-##Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors) - With WireFrames
-
 ### Logo
 ![Sidewalk Sailors](http://i.imgur.com/N3NR04r.png?1)
+##Link to [Trello](https://trello.com/b/jagawiuH/sidewalk-sailors) - With WireFrames
 
 ### App Statement
 When members of the Los Angeles community offer free material, Sidewalk Sailors will facilitate sharing this material with users by posting an image and location so that items may be picked up.
