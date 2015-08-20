@@ -24,6 +24,7 @@ if (app.get("env") === "development") {
   mongoose.connect('mongodb://localhost:27017/sidewalk_sailors');
 }
 
+// production code
 if (process.env.NODE_ENV === 'production') {
   mongoose.connect('mongodb://swsadmin:sUe2W#B68g@apollo.modulusmongo.net:27017/gyd7yZoj');
   app.use(express.session({
