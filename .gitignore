@@ -34,3 +34,5 @@ bower_components
 
 # banish the dreaded .DS_Store from the annals of history
 .DS_Store
+
+.env
