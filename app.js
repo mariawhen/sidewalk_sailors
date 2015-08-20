@@ -1,39 +1,41 @@
 var express        = require('express'),
+    mongodb        = require('mongodb'),
+    mongoose       = require('mongoose'),
+    bodyParser     = require('body-parser'),
+    cookieParser   = require('cookie-parser'),
+    connect        = require('connect'),
+    passport       = require('passport'),
+    session        = require('express-session'),
     path           = require('path'),
     favicon        = require('serve-favicon'),
     logger         = require('morgan'),
-    cookieParser   = require('cookie-parser'),
-    mongoose       = require('mongoose'),
-    bodyParser     = require('body-parser'),
-    // remove connect, causes memory leak
-    // connect        = require('connect'),
-    methodOverride = require('method-override'); //used to manipulate POST
-
-// prevent memory links instead of using default MemoryStore
-var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
+    methodOverride = require('method-override'), //used to manipulate POST
+    MongoStore     = require('connect-mongo')(session),
+    LocalStrategy  = require('passport-local').Strategy;
 
 // routes
 var routes = require('./routes/index');
-// http://blog.robertonodi.me/simple-image-upload-with-express/
-// db stuff
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 
 var app    = express();
 var router = express.Router();
 
-// This is our heroku production Environment
-// if (process.env.NODE_ENV === 'production') {
-//   var mongoURI = 'mongodb://localhost/sidewalksailors';
+// code to run in development mode
+if (app.get("env") === "development") {
+  mongoose.connect('mongodb://localhost:27017/sidewalk_sailors');
+}
 
-//   console.log('process.env.NODE_ENV: ' + process.env.NODE_ENV);
-//   mongoURI = process.env.MONGOLAB_URI;
-
-//   console.log('mongoURI: ' + mongoURI);
-//   mongoose.connect(mongoURI);
-// }
-
+if (process.env.NODE_ENV === 'production') {
+  mongoose.connect('mongodb://swsadmin:sUe2W#B68g@apollo.modulusmongo.net:27017/gyd7yZoj');
+  app.use(express.session({
+    secret: 'keyboard cat',
+    saveUninitialized: false, // don't create session until something stored
+    resave: false, //don't save session if unmodified
+    store: new mongoStore({
+        url: 'mongodb://swsadmin:sUe2W#B68g@apollo.modulusmongo.net:27017/gyd7yZoj',
+        touchAfter: 24 * 3600 // time period in seconds
+    })
+  }));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,12 +52,15 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
-// auth middleware
-app.use(require('express-session')({
-  secret: 'jeong sings',
-  resave: true,
-  saveUninitialized: true
-}));
+if (app.get("env") === "development") {
+  // auth middleware
+  app.use(session({
+    secret: 'jeong sings',
+    resave: true,
+    saveUninitialized: true
+  }));
+}
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -92,12 +97,12 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
+  app.listen(process.env.PORT);
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
     error: {}
   });
 });
-
 
 module.exports = app;
