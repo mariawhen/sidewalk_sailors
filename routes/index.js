@@ -1,3 +1,4 @@
+require('dotenv').load();
 var express  = require('express'),
     passport = require('passport'),
     methodOverride = require('method-override');

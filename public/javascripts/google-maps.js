@@ -1,10 +1,8 @@
-// AIzaSyDoexb3TQB9EoG0phPDzO0fqO6q467mbPg
-
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 34.0500, lng: -118.2500},
-    zoom: 14
+    zoom: 10
   });
 
 var infoWindow = new google.maps.InfoWindow({map: map});

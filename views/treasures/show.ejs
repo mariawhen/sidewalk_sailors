@@ -14,11 +14,21 @@
           </span>
         </div>
         <div class="card-content">
-          <%= treasure.description %>
-          <%= treasure.cross_street %>
-          <%= treasure.city %>
-          <%= treasure.state %>
-          <%= treasure.zipcode %>
+          <p>
+            <%= treasure.description %>
+          </p>
+          <p>
+            <%= treasure.cross_street %>
+          </p>
+          <p>
+            <%= treasure.city %>
+          </p>
+          <p>
+            <%= treasure.state %>
+          </p>
+          <p id="zipCode">
+            <%= treasure.zipcode %>
+          </p>
         </div>
         <div class="card-action">
           <form method="GET" action="/treasures/<%= treasure._id %>/edit" >
@@ -60,17 +70,8 @@
     <img src="https://images.unsplash.com/photo-1417444900330-dc44c79af021?q=80&fm=jpg&s=83b3780f886b71ea31393032ce4caf9a">
   </div>
 </div>
-<footer class="black center">
-  &copy; 2015 Sidewalk Sailors
-</footer>
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/bower_components/materialize/dist/js/materialize.min.js"></script>
-<script type="text/javascript" src="/bower_components/slick-carousel/slick/slick.min.js"></script>
-<script type="text/javascript" src="/javascripts/slick.js"></script>
-<script type="text/javascript" src="/javascripts/materialize.js"></script>
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoexb3TQB9EoG0phPDzO0fqO6q467mbPg&callback=initMap">
 </script>
-</body>
-</html>
+<% include ../partials/_footer %>
+
