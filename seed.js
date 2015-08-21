@@ -18,13 +18,13 @@ Treasure.remove({}, function(err, entry) {
 // Let's add some users
 var dummyData = function() {};
 Pirate.register(new Pirate({
-    _id: mongoose.Types.ObjectId("55d2ad76f7985b32e5f68ad2"),
+    _id: "55d2ad76f7985b32e5f68ad2",
     username: 'bob@bob.com',
     zipcode: '90001',
     treasure_count: 100
 }), '123', dummyData);
 Pirate.register(new Pirate({
-    _id: mongoose.Types.ObjectId("15d2ad76f7985b32e5f68ad2"),
+    _id: "15d2ad76f7985b32e5f68ad2",
     username: 'gary@gary.com',
     zipcode: '900017',
     treasure_count: 100
