@@ -51,7 +51,6 @@ Fork this app!
   - Forms
   - Logos
   - Socket.io
-  - Ajax Calls, JQuery
   - Google Maps Api
 
 ###Technologies
@@ -60,6 +59,7 @@ Fork this app!
 - Javascript
 - JQuery
 - Materialize
+- Socket.io
 - Normalize
 - HTML5 Boilerplate starter code
 - AJAX
