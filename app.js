@@ -27,11 +27,11 @@ if (app.get("env") === "development") {
 // production code
 if (process.env.NODE_ENV === 'production') {
   mongoose.connect('mongodb://swsadmin:sUe2W#B68g@apollo.modulusmongo.net:27017/gyd7yZoj');
-  app.use(express.session({
+  app.use(session({
     secret: 'keyboard cat',
     saveUninitialized: false, // don't create session until something stored
     resave: false, //don't save session if unmodified
-    store: new mongoStore({
+    store: new MongoStore({
         url: 'mongodb://swsadmin:sUe2W#B68g@apollo.modulusmongo.net:27017/gyd7yZoj',
         touchAfter: 24 * 3600 // time period in seconds
     })
@@ -65,14 +65,16 @@ if (app.get("env") === "development") {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', routes);
-
 // passport config
 var Pirate = require('./models/Pirate');
 passport.use(new LocalStrategy(Pirate.authenticate()));
 passport.serializeUser(Pirate.serializeUser());
 passport.deserializeUser(Pirate.deserializeUser());
 app.locals.title = 'Sidewalk Sailors';
+
+app.use('/', routes);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -98,7 +100,6 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  app.listen(process.env.PORT);
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
