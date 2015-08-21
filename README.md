@@ -1,7 +1,6 @@
 #Sidewalk Sailors
 
 ##App Link to [Modulus](http://sidewalksailors-50393.onmodulus.net/)
-###App Link to [Heroku](https://sidewalk-sailors.herokuapp.com/)
 
 ### Logo
 ![Sidewalk Sailors](http://i.imgur.com/N3NR04r.png?1)
@@ -23,11 +22,12 @@ There will be a 1 day expiration of posts. **After 24 hours from posting** the `
 - [x] find things by location
 - [x] CRUD users
 - [x] CRUD items
+- [x] Deployed!
 
 ###Icebox
 - [ ] star system (1-5 stars)
   - reliability meter
-  - count?
+  - count
 - [ ] follow pirates
   - Hartl tutorial video has example of how this is done
 - [ ] points for photo posts!
@@ -40,12 +40,19 @@ Fork this app!
 ###Design
 - 1. Bryan and Phil assigned to backend work:
   - Routes
-  - Models, CRUD Pirates & Treasure
+  - Models
+  - Controllers
+  - CRUD Pirates & Treasure
   - Authentication
+  - Deploying
+  - Seed data
 - 2. Jaytee and Maria assigned to frontend work:
   - Views
   - Forms
+  - Logos
+  - Socket.io
   - Ajax Calls, JQuery
+  - Google Maps Api
 
 ###Technologies
 - CSS
@@ -61,9 +68,8 @@ Fork this app!
 - MongoDB
 - Express
 - Bower
-- Heroku (tried)
-- Modulus
 - Slick
+- Modulus
 
 ###Future
 Scale app to be usable globally.
