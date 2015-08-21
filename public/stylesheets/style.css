@@ -116,6 +116,18 @@ footer{
   width: 400px;
 }
 
+/* override materialize so title is top left of image */
+/*.card-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0 0 5px;
+}*/
+
+/*.card-title p {
+  background-color:rgba(0,0,0,0.5);
+}*/
+
 .comment-board{
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
