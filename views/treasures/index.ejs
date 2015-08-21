@@ -5,7 +5,8 @@
 <h1 class="center"><%= title %></h1>
 <div class="container">
   <div class="row">
-   <% treasures.forEach(function(treasure){ %>
+  <% treasures.forEach(function(treasure, i){ %>
+    <!-- TREASURE -->
     <div class="col s3">
       <div class="card">
         <div class="card-image">
@@ -24,10 +25,16 @@
           <p><%= treasure.zipcode %></p>
           <p>Owner: <img src="<%= avatar %>"></p>
         </div>
-  </div>
-  </div>
+      </div>
+    </div>
+
+    <% if((i+1) % 4 === 0) { %>
+      </div>
+      <div class="row">
+    <% } %>
+
   <% }); %>
   </div>
-  </div>
+</div>
 
 <% include ../partials/_footer %>
