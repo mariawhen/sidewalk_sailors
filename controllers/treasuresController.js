@@ -102,7 +102,7 @@ var removeTreasure = function(req, res, next) {
   Treasure.remove({_id: id}, function(error) {
     if (error) res.json({message: 'Could not delete treasure because ' + error});
 
-    res.redirect('./treasures/');
+    res.redirect('/treasures');
     // res.json({message: 'Treasure successfully deleted'});
   });
 };
