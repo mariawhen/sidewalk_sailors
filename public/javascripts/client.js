@@ -22,7 +22,6 @@ function pullMessage() {
 
 $('button').on('click', function(){
   socket.emit('send-message', pullMessage());
-  return $('#textarea1').val("");
 });
 
 $('#textarea1').on('keypress',function(event) {
