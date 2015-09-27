@@ -1,6 +1,6 @@
 #Sidewalk Sailors
 
-##App Link to [Modulus](http://sidewalksailors-50393.onmodulus.net/)
+##App Link to [Heroku](http://lit-anchorage-2445.herokuapp.com/)
 
 ### Logo
 ![Sidewalk Sailors](http://i.imgur.com/N3NR04r.png?1)
